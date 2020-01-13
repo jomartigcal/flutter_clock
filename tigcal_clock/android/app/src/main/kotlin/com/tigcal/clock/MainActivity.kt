@@ -1,4 +1,4 @@
-package com.example.analog_clock
+package com.tigcal.clock
 
 import android.os.Bundle
 import io.flutter.app.FlutterActivity

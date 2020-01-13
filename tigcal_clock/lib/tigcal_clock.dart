@@ -23,16 +23,16 @@ final radiansPerHour = radians(360 / 12);
 /// A basic analog clock.
 ///
 /// You can do better than this!
-class AnalogClock extends StatefulWidget {
-  const AnalogClock(this.model);
+class TigcalClock extends StatefulWidget {
+  const TigcalClock(this.model);
 
   final ClockModel model;
 
   @override
-  _AnalogClockState createState() => _AnalogClockState();
+  _TigcalClockState createState() => _TigcalClockState();
 }
 
-class _AnalogClockState extends State<AnalogClock> {
+class _TigcalClockState extends State<TigcalClock> {
   var _now = DateTime.now();
   var _temperature = '';
   var _temperatureRange = '';
@@ -50,7 +50,7 @@ class _AnalogClockState extends State<AnalogClock> {
   }
 
   @override
-  void didUpdateWidget(AnalogClock oldWidget) {
+  void didUpdateWidget(TigcalClock oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (widget.model != oldWidget.model) {
       oldWidget.model.removeListener(_updateModel);
@@ -92,7 +92,7 @@ class _AnalogClockState extends State<AnalogClock> {
     //  - Inherit the parent Theme (see ClockCustomizer in the
     //    flutter_clock_helper package).
     //  - Override the Theme.of(context).colorScheme.
-    //  - Create your own [ThemeData], demonstrated in [AnalogClock].
+    //  - Create your own [ThemeData], demonstrated in [TigcalClock].
     //  - Create a map of [Color]s to custom keys, demonstrated in
     //    [DigitalClock].
     final customTheme = Theme.of(context).brightness == Brightness.light

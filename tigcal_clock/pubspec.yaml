@@ -1,5 +1,5 @@
-name: analog_clock
-description: Analog clock.
+name: tigcal_clock
+description: Tigcal clock.
 version: 1.0.0+1
 
 environment:
