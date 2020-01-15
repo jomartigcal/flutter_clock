@@ -34,10 +34,6 @@ class TigcalClock extends StatefulWidget {
 
 class _TigcalClockState extends State<TigcalClock> {
   var _now = DateTime.now();
-  var _temperature = '';
-  var _temperatureRange = '';
-  var _condition = '';
-  var _location = '';
   Timer _timer;
 
   @override
@@ -66,12 +62,7 @@ class _TigcalClockState extends State<TigcalClock> {
   }
 
   void _updateModel() {
-    setState(() {
-      _temperature = widget.model.temperatureString;
-      _temperatureRange = '(${widget.model.low} - ${widget.model.highString})';
-      _condition = widget.model.weatherString;
-      _location = widget.model.location;
-    });
+    setState(() {});
   }
 
   void _updateTime() {
@@ -113,18 +104,6 @@ class _TigcalClockState extends State<TigcalClock> {
           );
 
     final time = DateFormat.Hms().format(DateTime.now());
-    final weatherInfo = DefaultTextStyle(
-      style: TextStyle(color: customTheme.primaryColor),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(_temperature),
-          Text(_temperatureRange),
-          Text(_condition),
-          Text(_location),
-        ],
-      ),
-    );
 
     return Semantics.fromProperties(
       properties: SemanticsProperties(
@@ -163,14 +142,6 @@ class _TigcalClockState extends State<TigcalClock> {
                     color: customTheme.primaryColor,
                   ),
                 ),
-              ),
-            ),
-            Positioned(
-              left: 0,
-              bottom: 0,
-              child: Padding(
-                padding: const EdgeInsets.all(8),
-                child: weatherInfo,
               ),
             ),
           ],
