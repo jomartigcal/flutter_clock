@@ -104,6 +104,19 @@ class _TigcalClockState extends State<TigcalClock> {
 
     final time = DateFormat.Hms().format(DateTime.now());
 
+    final hour =
+        DateFormat(widget.model.is24HourFormat ? 'HH' : 'hh').format(_now);
+    final minute = DateFormat('mm').format(_now);
+    final hourMinuteTime = DefaultTextStyle(
+      style: TextStyle(color: customTheme.primaryColor, fontSize: 40.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(hour + ':' + minute),
+        ],
+      ),
+    );
+
     return Semantics.fromProperties(
       properties: SemanticsProperties(
         label: 'Analog clock with time $time',
@@ -112,6 +125,7 @@ class _TigcalClockState extends State<TigcalClock> {
       child: Container(
         color: customTheme.backgroundColor,
         child: Stack(
+          alignment: Alignment.center,
           children: [
             DrawnHand(
               color: customTheme.accentColor,
@@ -131,6 +145,13 @@ class _TigcalClockState extends State<TigcalClock> {
               size: 0.3,
               angleRadians: _now.hour * radiansPerHour +
                   (_now.minute / 60) * radiansPerHour,
+            ),
+            Positioned(
+              right: 0,
+              child: Padding(
+                padding: const EdgeInsets.all(8),
+                child: hourMinuteTime,
+              ),
             ),
           ],
         ),
