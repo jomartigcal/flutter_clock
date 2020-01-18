@@ -10,6 +10,7 @@ import 'package:flutter/semantics.dart';
 import 'package:intl/intl.dart';
 import 'package:vector_math/vector_math_64.dart' show radians;
 
+import 'hour_indicator.dart';
 import 'drawn_hand.dart';
 
 /// Total distance traveled by a second or a minute hand, each second or minute,
@@ -145,6 +146,10 @@ class _TigcalClockState extends State<TigcalClock> {
               size: 0.3,
               angleRadians: _now.hour * radiansPerHour +
                   (_now.minute / 60) * radiansPerHour,
+            ),
+            HourIndicator(
+              color: customTheme.highlightColor,
+              thickness: 8,
             ),
             Positioned(
               right: 0,
