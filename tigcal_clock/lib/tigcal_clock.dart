@@ -129,12 +129,6 @@ class _TigcalClockState extends State<TigcalClock> {
           alignment: Alignment.center,
           children: [
             DrawnHand(
-              color: customTheme.accentColor,
-              thickness: 4,
-              size: 0.7,
-              angleRadians: _now.second * radiansPerTick,
-            ),
-            DrawnHand(
               color: customTheme.highlightColor,
               thickness: 8,
               size: 0.5,
@@ -147,9 +141,23 @@ class _TigcalClockState extends State<TigcalClock> {
               angleRadians: _now.hour * radiansPerHour +
                   (_now.minute / 60) * radiansPerHour,
             ),
+            DrawnHand(
+              color: customTheme.accentColor,
+              thickness: 4,
+              size: 0.7,
+              angleRadians: _now.second * radiansPerTick,
+            ),
             HourIndicator(
               color: customTheme.highlightColor,
               thickness: 8,
+            ),
+            Container(
+              width: 12,
+              height: 12,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: customTheme.highlightColor,
+              ),
             ),
             Positioned(
               right: 0,
