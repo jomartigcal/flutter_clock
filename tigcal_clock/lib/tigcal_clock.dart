@@ -88,19 +88,16 @@ class _TigcalClockState extends State<TigcalClock> {
     //    [DigitalClock].
     final customTheme = Theme.of(context).brightness == Brightness.light
         ? Theme.of(context).copyWith(
-            // Hour hand.
-            primaryColor: Color(0xFF4285F4),
-            // Minute hand.
-            highlightColor: Color(0xFF8AB4F8),
-            // Second hand.
-            accentColor: Color(0xFF669DF6),
-            backgroundColor: Color(0xFFD2E3FC),
+            primaryColor: Color(0xFF002171),
+            highlightColor: Color(0xFF633597),
+            accentColor: Color(0xFFB71C1C),
+            backgroundColor: Color(0xFFE2F1F8),
           )
         : Theme.of(context).copyWith(
-            primaryColor: Color(0xFFD2E3FC),
-            highlightColor: Color(0xFF4285F4),
-            accentColor: Color(0xFF8AB4F8),
-            backgroundColor: Color(0xFF3C4043),
+            primaryColor: Color(0xFF4D82FF),
+            highlightColor: Color(0xFF8F75FF),
+            accentColor: Color(0xFFFF3838),
+            backgroundColor: Color(0xFF212121),
           );
 
     final time = DateFormat.Hms().format(DateTime.now());
@@ -109,7 +106,10 @@ class _TigcalClockState extends State<TigcalClock> {
         DateFormat(widget.model.is24HourFormat ? 'HH' : 'hh').format(_now);
     final minute = DateFormat('mm').format(_now);
     final hourMinuteTime = DefaultTextStyle(
-      style: TextStyle(color: customTheme.primaryColor, fontSize: 40.0),
+      style: TextStyle(
+          color: customTheme.primaryColor,
+          fontSize: 40.0,
+          fontWeight: FontWeight.bold),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -129,7 +129,7 @@ class _TigcalClockState extends State<TigcalClock> {
           alignment: Alignment.center,
           children: [
             DrawnHand(
-              color: customTheme.highlightColor,
+              color: customTheme.primaryColor,
               thickness: 8,
               size: 0.5,
               angleRadians: _now.minute * radiansPerTick,
