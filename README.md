@@ -1,15 +1,8 @@
-# Flutter Clock
+Flutter Clock
+============================
 
-Welcome to Flutter Clock!
+Tigcal Clock, an entry for [Flutter Clock](https://flutter.dev/clock).
 
-See [flutter.dev/clock](https://flutter.dev/clock) for how to get started, submission requirements, contest rules, and FAQs.
+<img src='art/clock_dark.png' width='350'>
 
-See a [live demo](https://maryx.github.io/flutter_clock) with Flutter for Web!
-
-Example [Analog Clock](analog_clock)
-
-<img src='analog_clock/analog.gif' width='350'>
-
-Example [Digital Clock](digital_clock)
-
-<img src='digital_clock/digital.gif' width='350'>
+<img src='art/clock_light.png' width='350'>
